@@ -30,7 +30,7 @@ function getBadRouteJSON(req, res, route) {
 function getTempJSONObject(req, msg) {
     const json = {
         highlevel: {
-            value: "This is a status message"
+            state: "false"
         },
         monitors: {
             master_bedroom: temp.A,
@@ -55,7 +55,7 @@ router.route('/thermostat')
         function (req, res) {
             const json = {
                 highlevel: {
-                    value: "Update Room Temperature"
+                    state: "false"
                 },
                 monitors: {
                     master_bedroom: temp.A,

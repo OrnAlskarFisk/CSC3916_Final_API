@@ -54,22 +54,67 @@ router.route('/thermostat')
         })
     .post(
         function (req, res) {
-            res.json(getMoviesJSONObject(req, "movie saved"));
+            const json = {
+                highlevel: {
+                    value: "Added New Room"
+                },
+                monitors: {
+                    Master_Bedroom: temp.A,
+                    Guest_Bedroom: temp.B,
+                    Kitchen: temp.C,
+                    Living_Room: temp.D,
+                    Basement: temp.E,
+                    Garage: 70
+                },
+                actions: {
+                    test_input_number: actions_test.input, test_toggle: actions_test.toggle
+                }
+            };
+            res.json(json);
         })
     .put(
         function (req, res) {
-            res.json(getMoviesJSONObject(req, "movie updated"));
+            const json = {
+                highlevel: {
+                    value: "Update Room Temperature"
+                },
+                monitors: {
+                    Master_Bedroom: temp.A,
+                    Guest_Bedroom: temp.B,
+                    Kitchen: 70,
+                    Living_Room: temp.D,
+                    Basement: temp.E
+                },
+                actions: {
+                    test_input_number: actions_test.input, test_toggle: actions_test.toggle
+                }
+            };
+            res.json(json);
         })
     .delete(
         function (req, res) {
-            res.json(getMoviesJSONObject(req, "movie deleted"));
+            const json = {
+                highlevel: {
+                    value: "Deleted Room"
+                },
+                monitors: {
+                    Master_Bedroom: temp.A,
+                    Guest_Bedroom: temp.B,
+                    Kitchen: temp.C,
+                    Living_Room: temp.D
+                },
+                actions: {
+                    test_input_number: actions_test.input, test_toggle: actions_test.toggle
+                }
+            };
+            res.json(json);
         })
     .all(function (req, res) {
         getBadRouteJSON(req, res, "/thermostat");
     });
 
 router.post('/button', function(req, res) {
-    res.send({status: 200, message: "Button pressed"});
+    res.send({status: 200, message: "All rooms will be equalized to 70"});
 }).post('/toggle', function (req, res) {
     var query = Object.keys(req.query).length === 0 ? null : req.query;
 

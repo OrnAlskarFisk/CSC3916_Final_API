@@ -33,11 +33,11 @@ function getTempJSONObject(req, msg) {
             value: "This is a status message"
         },
         monitors: {
-            Master_Bedroom: temp.A,
-            Guest_Bedroom: temp.B,
-            Kitchen: temp.C,
-            Living_Room: temp.D,
-            Basement: temp.E
+            master_bedroom: temp.A,
+            guest_bedroom: temp.B,
+            kitchen: temp.C,
+            living_room: temp.D,
+            basement: temp.E
         },
         actions: {
             test_input_number: actions_test.input, test_toggle: actions_test.toggle
@@ -52,26 +52,6 @@ router.route('/thermostat')
         function (req, res) {
             res.json(getTempJSONObject(req, "GET tempurature"));
         })
-    .post(
-        function (req, res) {
-            const json = {
-                highlevel: {
-                    value: "Added New Room"
-                },
-                monitors: {
-                    Master_Bedroom: temp.A,
-                    Guest_Bedroom: temp.B,
-                    Kitchen: temp.C,
-                    Living_Room: temp.D,
-                    Basement: temp.E,
-                    Garage: 70
-                },
-                actions: {
-                    test_input_number: actions_test.input, test_toggle: actions_test.toggle
-                }
-            };
-            res.json(json);
-        })
     .put(
         function (req, res) {
             const json = {
@@ -79,29 +59,11 @@ router.route('/thermostat')
                     value: "Update Room Temperature"
                 },
                 monitors: {
-                    Master_Bedroom: temp.A,
-                    Guest_Bedroom: temp.B,
-                    Kitchen: 70,
-                    Living_Room: temp.D,
-                    Basement: temp.E
-                },
-                actions: {
-                    test_input_number: actions_test.input, test_toggle: actions_test.toggle
-                }
-            };
-            res.json(json);
-        })
-    .delete(
-        function (req, res) {
-            const json = {
-                highlevel: {
-                    value: "Deleted Room"
-                },
-                monitors: {
-                    Master_Bedroom: temp.A,
-                    Guest_Bedroom: temp.B,
-                    Kitchen: temp.C,
-                    Living_Room: temp.D
+                    master_bedroom: temp.A,
+                    guest_bedroom: temp.B,
+                    kitchen: 70,
+                    living_room: temp.D,
+                    basement: temp.E
                 },
                 actions: {
                     test_input_number: actions_test.input, test_toggle: actions_test.toggle

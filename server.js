@@ -40,7 +40,6 @@ function getTempJSONObject(req, msg) {
             basement: temp.E
         },
         actions: {
-            test_input_number: actions_test.input, test_toggle: actions_test.toggle
         }
     };
 
@@ -66,7 +65,6 @@ router.route('/thermostat')
                     basement: temp.E
                 },
                 actions: {
-                    test_input_number: actions_test.input, test_toggle: actions_test.toggle
                 }
             };
             res.json(json);

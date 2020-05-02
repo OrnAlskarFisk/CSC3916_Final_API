@@ -74,21 +74,7 @@ router.route('/thermostat')
     });
 
 router.post('/button', function(req, res) {
-    const json = {
-        highlevel: {
-            state: "false"
-        },
-        monitors: {
-            master_bedroom: 70,
-            guest_bedroom: 70,
-            kitchen: 70,
-            living_room: 70,
-            basement: 70
-        },
-        actions: {
-        }
-    };
-    res.json(json);
+    res.send({status: 200, message: "All rooms will be equalized to 70"});
 }).post('/toggle', function (req, res) {
     var query = Object.keys(req.query).length === 0 ? null : req.query;
 
